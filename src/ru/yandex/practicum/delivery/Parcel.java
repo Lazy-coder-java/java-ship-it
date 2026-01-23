@@ -14,7 +14,7 @@ public abstract class Parcel {
         this.sendDay = sendDay;
     }
 
-    protected void printPacked() {
+    public void packageItem() {
         System.out.println("Посылка <<" + description + ">> упакована");
     }
 
@@ -27,6 +27,4 @@ public abstract class Parcel {
     public int calculateDeliveryCost() {
         return weight * getBaseCostPerUnit();
     }
-
-    public abstract void packageItem();
 }

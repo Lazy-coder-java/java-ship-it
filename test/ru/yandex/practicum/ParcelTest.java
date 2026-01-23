@@ -25,9 +25,8 @@ public class ParcelTest {
     }
 
     @Test
-    public void perishableIsExpired() {
-        PerishableParcel p = new PerishableParcel("Milk", 2, "Addr", 5, 3);
-        Assertions.assertFalse(p.isExpired(8));
-        Assertions.assertTrue(p.isExpired(9));
+    public void zeroWeightCostIsCorrect() {
+        StandardParcel p = new StandardParcel("Empty", 0, "Addr", 1);
+        Assertions.assertEquals(0, p.calculateDeliveryCost());
     }
 }

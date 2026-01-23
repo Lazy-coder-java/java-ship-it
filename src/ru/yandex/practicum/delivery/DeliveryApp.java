@@ -16,6 +16,7 @@ public class DeliveryApp {
 
     public static void main(String[] args) {
         boolean running = true;
+
         while (running) {
             showMenu();
             int choice = Integer.parseInt(scanner.nextLine());
@@ -99,25 +100,25 @@ public class DeliveryApp {
     }
 
     private static void sendParcels() {
-        for (Parcel p : allParcels) {
-            p.packageItem();
-            p.deliver();
+        for (Parcel parcel : allParcels) {
+            parcel.packageItem();
+            parcel.deliver();
         }
     }
 
     private static void calculateCosts() {
         int total = 0;
-        for (Parcel p : allParcels) {
-            total += p.calculateDeliveryCost();
+        for (Parcel parcel : allParcels) {
+            total += parcel.calculateDeliveryCost();
         }
         System.out.println("Общая стоимость доставки: " + total);
     }
 
     private static void updateTracking() {
-        System.out.println("Введите новое местоположение для трекинга:");
+        System.out.println("Введите новое местоположение:");
         String location = scanner.nextLine();
-        for (Trackable t : trackables) {
-            t.reportStatus(location);
+        for (Trackable trackable : trackables) {
+            trackable.reportStatus(location);
         }
     }
 
@@ -127,13 +128,16 @@ public class DeliveryApp {
 
         switch (type) {
             case 1:
-                boxStandard.getAllParcels().forEach(p -> System.out.println(p.description));
+                boxStandard.getAllParcels()
+                        .forEach(p -> System.out.println(p.description));
                 break;
             case 2:
-                boxFragile.getAllParcels().forEach(p -> System.out.println(p.description));
+                boxFragile.getAllParcels()
+                        .forEach(p -> System.out.println(p.description));
                 break;
             case 3:
-                boxPerishable.getAllParcels().forEach(p -> System.out.println(p.description));
+                boxPerishable.getAllParcels()
+                        .forEach(p -> System.out.println(p.description));
                 break;
             default:
                 System.out.println("Неверный тип.");

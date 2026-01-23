@@ -12,9 +12,4 @@ public class StandardParcel extends Parcel {
     protected int getBaseCostPerUnit() {
         return BASE_COST;
     }
-
-    @Override
-    public void packageItem() {
-        printPacked();
-    }
 }
